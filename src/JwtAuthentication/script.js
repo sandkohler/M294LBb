@@ -49,4 +49,9 @@ form.addEventListener('submit', async (event) => {
     localStorage.setItem('jwtToken', token);
 
     alert('Erfolgreich eingeloggt');
+
+    if (data.token) {
+        localStorage.setItem('token', data.token);
+        window.location.href = '/src/NoAuthentication/index.html'; // hier die URL der nächsten Seite
+    }
 });
