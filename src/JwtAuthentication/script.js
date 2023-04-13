@@ -1,57 +1,63 @@
-/* JwtAuthentication
+// Prüft ob ich eingelogt bin
+// Hole den Token aus dem LocalStorage
+const token = localStorage.getItem('token');
 
-Mit POST http://localhost:3000/auth/jwt/sign wird ein 
-jwt token erstellt.
+// Setze den Token als Authorization-Header
+const headers = {
+    'Authorization': `Bearer ${token}`
+};
 
-Das sind die Login informationen 
-mit denen der token erstellt werden sollte:
-
-email : info@example.com
-password : m294
-
-also zurück bekommt man einen token, das sieht so aus:
-{
-  "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpZWdvLnN0ZWluZXJAdGVzdC5jb20iLCJpYXQiOjE2NjE1MTE4NDV9.RpqenBNGG2DVlG2Y25SWdvEni8Q16ie9-tulRBSlzoo"
+// Wenn der Token nicht vorhanden ist, leite den Benutzer auf die Login-Seite weiter
+if (!token) {
+    window.location.href = '/src/JwtAuthentication/login.html'; // anpassen zur Login-URL deiner Seite
 }
 
-Der token muss bei jedem weiteren request mitgeschickt werden,
-aslo der Benutzer bleibt eingeloggt bis er sich ausloggt, also
-den localstorage löscht.
 
-Kurz zusammengefasst:
-Benutzer loggt sich mit Email und Passwort ein, daraus wird
-einen Token erstellt, der im Localstorage gespeichert wird, bis
-sich der Benutzer ausloggt.
-*/
 
-const form = document.querySelector('#login-form');
+/*
 
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = form.email.value;
-    const password = form.password.value;
+// Führe die GET-Anfrage mit dem Authorization-Header aus
+fetch('http://localhost:3000/auth/jwt/tasks', {
+    method: 'GET',
+    headers: headers
+})
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
 
-    const response = await fetch('http://localhost:3000/auth/jwt/sign', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-    });
+// Führe die GET-Anfrage mit dem Authorization-Header aus
+fetch('http://localhost:3000/auth/jwt/tasks', {
+    method: 'GET',
+    headers: headers
+})
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
 
-    if (!response.ok) {
-        alert('Fehler beim Einloggen');
+// Fetch all tasks from API
+async function fetchTasks() {
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('Sie sind nicht eingeloggt!');
         return;
     }
 
-    const data = await response.json();
-    const token = data.token;
-    localStorage.setItem('jwtToken', token);
+    // Set Authorization header with JWT token
+    const headers = {
+        'Authorization': `Bearer ${token}`
+    };
 
-    alert('Erfolgreich eingeloggt');
+    try {
+        // Fetch tasks with Authorization header
+        const response = await fetch("http://localhost:3000/auth/jwt/tasks", { headers });
+        const tasks = await response.json();
 
-    if (data.token) {
-        localStorage.setItem('token', data.token);
-        window.location.href = '/src/NoAuthentication/index.html'; // hier die URL der nächsten Seite
+        // Display tasks on page
+        tasks.forEach(task => {
+            addTaskToList(task);
+        });
+    } catch (error) {
+        console.log(error);
     }
-});
+} */
