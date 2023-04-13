@@ -21,7 +21,7 @@ Die Id muss der Benutzer aber nicht eingeben da dies automatisch
 mitgegeben wird. */
 
 /* Benutzer sollte eine bestehende Aufgabe updaten können mit
-Put http://localhost:3000/tasks/{taskId} kann man eine bestimmte
+Put http://localhost:3000/tasks kann man eine bestimmte
 Aufgabe updaten */
 
 /* Benutzer sollte eine Aufgabe löschen können mit
