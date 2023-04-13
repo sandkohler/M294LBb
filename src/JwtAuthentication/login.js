@@ -46,7 +46,6 @@ form.addEventListener('submit', async (event) => {
 
     const data = await response.json();
     const token = data.token;
-    localStorage.setItem('jwtToken', token);
 
     if (data.token) {
         localStorage.setItem('token', data.token);
