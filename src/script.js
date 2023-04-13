@@ -93,8 +93,12 @@ taskList.addEventListener("click", async event => {
         const newTitle = prompt("Enter a new title for this task:", taskTitle);
 
         if (newTitle !== null) {
-            const updatedTask = { title: newTitle };
-            const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+            const updatedTask = {
+                id: taskId,
+                title: newTitle,
+                completed: false
+            };
+            const response = await fetch(`http://localhost:3000/tasks`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
