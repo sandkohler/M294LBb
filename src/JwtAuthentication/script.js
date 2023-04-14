@@ -112,12 +112,12 @@ taskList.addEventListener("click", async event => {
         const li = target.parentElement;
         const taskId = li.dataset.id;
         const taskTitle = li.firstChild.textContent;
-        const newTitle = prompt("Enter a new title for this task:", taskTitle);
+        const newTitle = prompt("Enter a new title for this task (max. 27 characters):", taskTitle.substring(0, 27));
 
         if (newTitle !== null && newTitle.trim() !== "") { // Überprüfe, ob der Titel nicht leer ist oder nur aus Leerzeichen besteht
             const updatedTask = {
                 id: taskId,
-                title: newTitle.trim(), // Entferne Leerzeichen am Anfang und am Ende des Titels
+                title: newTitle.trim().substring(0, 27), // Entferne Leerzeichen am Anfang und am Ende des Titels mit maximal 27 Zeichen
                 completed: false
             };
             const response = await fetch(`http://localhost:3000/auth/jwt/tasks`, {

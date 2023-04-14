@@ -18,6 +18,7 @@ h1 {
 }
 
 .edit {
+    padding-left: 17px;
     display: inline-block;
     /* Buttons in eine Zeile bringen */
     vertical-align: middle;
@@ -34,8 +35,8 @@ ul {
 }
 
 li {
-    padding-left: 20px;
-    /* fügt 20px Abstand von links hinzu */
+    padding-left: 17px;
+    /* fügt Abstand von links hinzu */
     background-color: #f5f5f5;
     margin-bottom: 10px;
     box-shadow: 2px 2px 2px #ccc;
