@@ -57,25 +57,28 @@ form.addEventListener('submit', async (event) => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const response = await fetch('http://localhost:3000/auth/jwt/sign', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-    });
+    try {
+        const response = await fetch('http://localhost:3000/auth/jwt/sign', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
 
-    if (!response.ok) {
-        alert('Login unsuccessful. Please check your credentials and try again.'); // Error message wenn man sich Falsch einloggt
-        return;
-    }
+        if (!response.ok) {
+            throw new Error('Login unsuccessful. Please check your credentials and try again.');
+        }
 
-    const data = await response.json();
-    const token = data.token;
+        const data = await response.json();
+        const token = data.token;
 
-    if (data.token) {
-        localStorage.setItem('token', data.token);
-        window.location.href = '/src/JwtAuthentication/index.html'; // Pfad für die nächste Seite, also auf die man nach dem erfolgreichen einloggen kommt
-        alert("You have successfully logged in!")
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+            window.location.href = '/src/JwtAuthentication/index.html'; // Pfad für die nächste Seite, also auf die man nach dem erfolgreichen einloggen kommt
+            alert("You have successfully logged in!")
+        }
+    } catch (error) {
+        alert("Oops! Something went wrong. Please try again later.");
     }
 });

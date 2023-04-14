@@ -15,17 +15,17 @@ if (!token) {
 }
 
 async function fetchTask(taskId, token) {
-    const response = await fetch(`http://localhost:3000/auth/jwt/task/${taskId}`, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    });
+    try {
+        const response = await fetch(`http://localhost:3000/auth/jwt/task/${taskId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
-    if (!response.ok) {
-        throw new Error(`Failed to fetch task: ${response.statusText}`);
+        return await response.json();
+    } catch (error) {
+        alert("Failed to fetch tasks. Please try again later.");
     }
-
-    return await response.json();
 }
 
 // Lädt Aufgabe in den DOM

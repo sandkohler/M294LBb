@@ -63,26 +63,36 @@ window.addEventListener("load", () => {
 
 // Fetcht alle Aufgaben von der API
 async function fetchTasks() {
-    const response = await fetch("http://localhost:3000/auth/jwt/tasks", {
-        headers: getHeaders()
-    });
-    const tasks = await response.json();
-
-    tasks.forEach(task => {
-        addTaskToList(task);
-    });
+    try {
+        const response = await fetch("http://localhost:3000/auth/jwt/tasks", {
+            headers: getHeaders()
+        });
+        if (!response.ok) {
+            throw new Error('Error fetching tasks');
+        }
+        const tasks = await response.json();
+        tasks.forEach(task => {
+            addTaskToList(task);
+        });
+    } catch (error) {
+        alert("Failed to fetch tasks. Please try again later.");
+    }
 }
 
 // Eine Aufgabe zur Liste hinzufügen
-function addTaskToList(task) {
-    const li = document.createElement("li");
-    li.dataset.id = task.id;
-    li.innerHTML = `
-    ${task.title}
-        <img class="edit" src="./Grafiken/edit-PhotoRoom.png-PhotoRoom.png" alt="edit">
-        <img class="delete" src="./Grafiken/delete-PhotoRoom.png-PhotoRoom.png" alt="delete">
-        `;
-    taskList.appendChild(li);
+async function addTaskToList(task) {
+    try {
+        const li = document.createElement("li");
+        li.dataset.id = task.id;
+        li.innerHTML = `
+        ${task.title}
+            <img class="edit" src="./Grafiken/edit-PhotoRoom.png-PhotoRoom.png" alt="edit">
+            <img class="delete" src="./Grafiken/delete-PhotoRoom.png-PhotoRoom.png" alt="delete">
+            `;
+        taskList.appendChild(li);
+    } catch (error) {
+        alert("Failed to add task to the list. Please try again later.");
+    }
 }
 
 // Handelt den submit Button um eine neue Aufgabe hinzuzufügen
