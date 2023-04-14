@@ -10,7 +10,8 @@ const headers = {
 
 // Wenn der Token nicht vorhanden ist, leite den Benutzer auf die Login-Seite weiter
 if (!token) {
-    window.location.href = '/src/JwtAuthentication/Login/login.html'; // anpassen zur Login-URL deiner Seite
+    window.location.href = '/src/JwtAuthentication/Login/login.html'; //  zur Login-Seite
+    alert("Access to this page is restricted. Please log in with your credentials to continue.")
 }
 
 async function fetchTask(taskId, token) {
