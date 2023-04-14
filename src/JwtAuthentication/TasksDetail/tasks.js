@@ -102,6 +102,7 @@ taskList.addEventListener("click", async event => {
 
             const updatedTaskData = await response.json();
             li.firstChild.textContent = updatedTaskData.title;
+            alert("Task updated successfully!")
         } else {
             alert("Please enter a valid task title."); // Gib eine Fehlermeldung aus, wenn der Titel leer ist oder nur aus Leerzeichen besteht
         }
@@ -117,6 +118,7 @@ taskList.addEventListener("click", async event => {
         if (response.ok) {
             li.remove();
             alert("Task successfully deleted!")
+            window.location.href = '/src/JwtAuthentication/index.html'; // Da die Aufgaben dan nicht mehr existiert, wird man auf die Übersichtsseite geleitet
         }
     }
 });
