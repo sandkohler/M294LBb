@@ -28,6 +28,16 @@ h1 {
     cursor: pointer;
 }
 
+.delete {
+    display: inline-block;
+    /* Buttons in eine Zeile bringen */
+    vertical-align: middle;
+    /* Ausrichtung vertikal mittig */
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+}
+
 /* Entfernt Aufzählungspunkte */
 ul {
     list-style: none;

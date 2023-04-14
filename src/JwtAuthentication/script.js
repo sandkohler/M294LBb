@@ -142,6 +142,7 @@ taskList.addEventListener("click", async event => {
 
         if (response.ok) {
             li.remove();
+            alert("Task successfully deleted!")
         }
     }
 });

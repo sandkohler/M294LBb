@@ -47,6 +47,7 @@ async function loadTaskDetails() {
         li.innerHTML = `
       ${task.title}
       <img class="edit" src="/src/JwtAuthentication/Grafiken/edit-PhotoRoom.png-PhotoRoom.png" alt="edit">
+      <img class="delete" src="/src/JwtAuthentication/Grafiken/delete-PhotoRoom.png-PhotoRoom.png" alt="delete">
     `;
         taskList.appendChild(li);
     } catch (error) {
@@ -102,6 +103,19 @@ taskList.addEventListener("click", async event => {
             li.firstChild.textContent = updatedTaskData.title;
         } else {
             alert("Please enter a valid task title."); // Gib eine Fehlermeldung aus, wenn der Titel leer ist oder nur aus Leerzeichen besteht
+        }
+    } else if (target.classList.contains("delete")) {
+        const li = target.parentElement;
+        const taskId = li.dataset.id;
+
+        const response = await fetch(`http://localhost:3000/auth/jwt/task/${taskId}`, {
+            method: "DELETE",
+            headers: getHeaders()
+        });
+
+        if (response.ok) {
+            li.remove();
+            alert("Task successfully deleted!")
         }
     }
 });
