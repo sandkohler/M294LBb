@@ -271,32 +271,6 @@ body {
     animation-delay: .75s
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -311,3 +285,5 @@ body {
     width: 68px;
     height: 68px;
 }
+
+/* https://uiverse.io/glisovic01/stale-chipmunk-33 */

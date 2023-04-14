@@ -28,7 +28,7 @@ sich der Benutzer ausloggt.
 // Hole den Token aus dem LocalStorage
 const token = localStorage.getItem('token');
 
-// Erstelle das Bild-Element und füge es der body hinzu
+// Erstelle das Bild-Element und füge es dem Body hinzu
 const img = document.createElement('img');
 img.alt = "Login Icon";
 img.className = "login-img";
@@ -41,18 +41,17 @@ document.body.appendChild(loginIcon);
 if (!token) {
     img.src = "/src/JwtAuthentication/Grafiken/geschlossenesSchloss.png";
     img.title = "You are not logged in";
-    console.log("You are not logged in")
+    /* console.log("You are not logged in") wurde zum Testen des Codes gebraucht */
 } else {
     img.src = "/src/JwtAuthentication/Grafiken/offenes-schloss-hacking-konzept-cyber-security-hintergrund-twa34d-PhotoRoom.png-PhotoRoom.png";
     img.title = "You are logged in";
-    console.log("You are logged in")
+    /* console.log("You are logged in") wurde zum Testen des Codes gebraucht */
 }
 
-
-
-
+// wählt das login form Element vom DOM
 const form = document.querySelector('#login-form');
 
+// Eventlistener hört auf den Button (: also wenn er geklickt wird
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const email = form.email.value;
