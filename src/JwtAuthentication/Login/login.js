@@ -77,5 +77,6 @@ form.addEventListener('submit', async (event) => {
     if (data.token) {
         localStorage.setItem('token', data.token);
         window.location.href = '/src/JwtAuthentication/index.html'; // Pfad für die nächste Seite, also auf die man nach dem erfolgreichen einloggen kommt
+        alert("You have successfully logged in!")
     }
 });
