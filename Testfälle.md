@@ -19,7 +19,7 @@
 
 [3.Testfall](#_toc57649079)
 
-
+[4.Testfall](#_toc57649017)
 
 1. # <a name="_toc57649077"></a>Testfall
 
@@ -86,5 +86,28 @@
 | Mängelklasse \*    | 0             |
 | Mängelbeschreibung | Keine Mängel  |
 | Bemerkungen        |               |
+
+\* Mängelklasse: 0 = mängelfrei, 1 = belangloser Mangel, 2 = leichter Mangel, 3 = schwerer Mangel, 4 = kritischer Mangel
+
+
+4. # <a name="_toc57649017"></a>Testfall
+
+### Testfallbeschreibung
+
+| ID / Bezeichnung    | T-003              | gemäss Testkonzept                                                                                                                         |
+| :------------------ | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| Beschreibung        | gemäss Testkonzept | Ohne Backend                                                                                                                               |
+| Testvoraussetzung   | gemäss Testkonzept | Docker wurde beendet, also das Backend wurde gestopt                                                                                       |
+| Testschritte        | gemäss Testkonzept | Es wurde getestet was passiert, wenn der Benutzer verschiedene Aktionen tätigt wenn  das Backend ausgeschalten ist.                        |
+| Erwartetes Ergebnis | gemäss Testkonzept | Der Benutzer bekommt eine freundliche Nachricht, dass das Programm momentan nicht funktioniert und er es später nochmals probieren sollte. |
+
+### Testdurchführung und Testergebnis
+
+| Testdatum          | 14.04.2023                                                                                                                                                                                                                   |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tester             | Sandro Kohler                                                                                                                                                                                                                |
+| Mängelklasse \*    | 2                                                                                                                                                                                                                            |
+| Mängelbeschreibung | Wenn der Benutzer auf der Übersichtsseite ist und erst dann das Backend ausgeschalten wird und der Benutzer dann einen Task updaten oder deleten möchte bekommt er keine Fehlermeldung, solange er die Seite nicht refresht. |
+| Bemerkungen        |                                                                                                                                                                                                                              |
 
 \* Mängelklasse: 0 = mängelfrei, 1 = belangloser Mangel, 2 = leichter Mangel, 3 = schwerer Mangel, 4 = kritischer Mangel
