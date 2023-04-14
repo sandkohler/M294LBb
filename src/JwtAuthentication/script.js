@@ -78,9 +78,9 @@ function addTaskToList(task) {
     li.dataset.id = task.id;
     li.innerHTML = `
     ${task.title}
-    <button class="edit">Edit</button>
-    <button class="delete">Delete</button>
-  `;
+        <img class="edit" src="./Grafiken/edit-PhotoRoom.png-PhotoRoom.png" alt="edit">
+        <img class="delete" src="./Grafiken/delete-PhotoRoom.png-PhotoRoom.png" alt="delete">
+        `;
     taskList.appendChild(li);
 }
 

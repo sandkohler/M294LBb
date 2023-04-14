@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+}
+
+
+body {
+    background-color: #171717;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    margin-top: 17px;
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.edit {
+    display: inline-block;
+    /* Buttons in eine Zeile bringen */
+    vertical-align: middle;
+    /* Ausrichtung vertikal mittig */
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+/* Entfernt Aufzählungspunkte */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding-left: 20px;
+    /* fügt 20px Abstand von links hinzu */
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    max-width: 300px;
+    /* hier können Sie die maximale Breite anpassen */
+    margin: 10px auto;
+    /* zentriert die Listenelemente horizontal */
+}

@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+}
+
+
+body {
+    background-color: #171717;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    margin-top: 17px;
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.delete {
+    display: inline-block;
+    /* Buttons in eine Zeile bringen */
+    vertical-align: middle;
+    /* Ausrichtung vertikal mittig */
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.edit {
+    display: inline-block;
+    /* Buttons in eine Zeile bringen */
+    vertical-align: middle;
+    /* Ausrichtung vertikal mittig */
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* Entfernt Aufzählungspunkte */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding-left: 20px;
+    /* fügt 20px Abstand von links hinzu */
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    max-width: 300px;
+    /* hier können Sie die maximale Breite anpassen */
+    margin: 10px auto;
+    /* zentriert die Listenelemente horizontal */
+}
+
+
+.task-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.task-title {
+    margin-left: 10px;
+}
+
+
+button {
+    margin: 17px;
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+label {
+    color: white;
+}
+
+label {
+    font-style: italic;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    /* Fügt einen Rahmen hinzu, um das Eingabefeld zu umranden */
+    border-radius: 5px;
+    /* Fügt abgerundete Ecken zum Rahmen hinzu */
+    font-size: 16px;
+    /* Legt die Schriftgröße des Textes im Eingabefeld fest */
+    line-height: 1.5;
+    /* Legt den Zeilenabstand des Textes im Eingabefeld fest */
+}
