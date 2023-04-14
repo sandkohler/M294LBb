@@ -24,6 +24,33 @@ einen Token erstellt, der im Localstorage gespeichert wird, bis
 sich der Benutzer ausloggt.
 */
 
+// Prüft ob ich eingelogt bin
+// Hole den Token aus dem LocalStorage
+const token = localStorage.getItem('token');
+
+// Erstelle das Bild-Element und füge es der body hinzu
+const img = document.createElement('img');
+img.alt = "Login Icon";
+img.className = "login-img";
+const loginIcon = document.createElement('div');
+loginIcon.className = "login-icon";
+loginIcon.appendChild(img);
+document.body.appendChild(loginIcon);
+
+// Überprüfe, ob der Token vorhanden ist und setze entsprechend das Bild-Element
+if (!token) {
+    img.src = "/src/JwtAuthentication/Grafiken/geschlossenesSchloss.png";
+    img.title = "You are not logged in";
+    console.log("You are not logged in")
+} else {
+    img.src = "/src/JwtAuthentication/Grafiken/offenes-schloss-hacking-konzept-cyber-security-hintergrund-twa34d-PhotoRoom.png-PhotoRoom.png";
+    img.title = "You are logged in";
+    console.log("You are logged in")
+}
+
+
+
+
 const form = document.querySelector('#login-form');
 
 form.addEventListener('submit', async (event) => {

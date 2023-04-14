@@ -270,3 +270,44 @@ body {
     animation: btn-anim3 1.5s linear infinite;
     animation-delay: .75s
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-icon {
+    margin-right: 20px;
+}
+
+.login-img {
+    width: 68px;
+    height: 68px;
+}
