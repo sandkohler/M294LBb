@@ -33,12 +33,12 @@ const taskList = document.getElementById("task-list");
 const addTaskForm = document.querySelector("form");
 const taskTitleInput = document.getElementById("title");
 
-// Fetch all tasks on page load
+// Fetcht alle Aufgaben beim laden der Seite
 window.addEventListener("load", () => {
     fetchTasks();
 });
 
-// Fetch all tasks from API
+// Fetcht alle Aufgaben von der API
 async function fetchTasks() {
     const response = await fetch("http://localhost:3000/tasks");
     const tasks = await response.json();
@@ -48,7 +48,7 @@ async function fetchTasks() {
     });
 }
 
-// Add a task to the list
+// Eine Aufgabe zur Liste hinzufügen
 function addTaskToList(task) {
     const li = document.createElement("li");
     li.dataset.id = task.id;
@@ -60,7 +60,7 @@ function addTaskToList(task) {
     taskList.appendChild(li);
 }
 
-// Handle form submit to add a new task
+// Handelt den submit Button um eine neue Aufgabe hinzuzufügen
 addTaskForm.addEventListener("submit", async event => {
     event.preventDefault();
 
@@ -82,7 +82,7 @@ addTaskForm.addEventListener("submit", async event => {
     taskTitleInput.value = "";
 });
 
-// Handle edit/delete button clicks
+// Handelt edit & delete, um eine Aufgabe zu löschen oder zu updaten
 taskList.addEventListener("click", async event => {
     const target = event.target;
 

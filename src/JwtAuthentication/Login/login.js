@@ -40,7 +40,7 @@ form.addEventListener('submit', async (event) => {
     });
 
     if (!response.ok) {
-        alert('Fehler beim Einloggen');
+        alert('Login unsuccessful. Please check your credentials and try again.'); // Error message wenn man sich Falsch einloggt
         return;
     }
 
@@ -49,6 +49,6 @@ form.addEventListener('submit', async (event) => {
 
     if (data.token) {
         localStorage.setItem('token', data.token);
-        window.location.href = '/src/JwtAuthentication/index.html'; // hier die URL der nächsten Seite
+        window.location.href = '/src/JwtAuthentication/index.html'; // Pfad für die nächste Seite, also auf die man nach dem erfolgreichen einloggen kommt
     }
 });

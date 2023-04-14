@@ -10,7 +10,7 @@ const headers = {
 
 // Wenn der Token nicht vorhanden ist, leite den Benutzer auf die Login-Seite weiter
 if (!token) {
-    window.location.href = '/src/JwtAuthentication/login.html'; // anpassen zur Login-URL deiner Seite
+    window.location.href = '/src/JwtAuthentication/Login/login.html'; // anpassen zur Login-URL deiner Seite
 }
 
 async function fetchTask(taskId, token) {
@@ -27,31 +27,31 @@ async function fetchTask(taskId, token) {
     return await response.json();
 }
 
-// Load the task details into the DOM
+// Lädt Aufgabe in den DOM
 async function loadTaskDetails() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const taskId = urlParams.get('id');
         const token = localStorage.getItem('token');
 
-        if (!taskId) { // Check if the `id` parameter is present in the URL
+        if (!taskId) { // Prüft ob der 'id' parameter in der URL ist
             throw new Error('Task ID parameter is missing from the URL.');
         }
 
         const task = await fetchTask(taskId, token);
 
-        // Update the UI with the task details
+        // Updated das UI mit dem Task und dem edit Bild
         const taskList = document.getElementById("task-list");
         const li = document.createElement("li");
         li.dataset.id = task.id;
         li.innerHTML = `
       ${task.title}
-      <img class="edit" src="./Grafiken/edit-PhotoRoom.png-PhotoRoom.png" alt="edit">
+      <img class="edit" src="/src/JwtAuthentication/Grafiken/edit-PhotoRoom.png-PhotoRoom.png" alt="edit">
     `;
         taskList.appendChild(li);
     } catch (error) {
         console.error(error);
-        // Display an error message to the user
+        // Gibt dem Benutzer eine error message
         const taskList = document.getElementById("task-list");
         const li = document.createElement("li");
         li.innerHTML = 'Error loading task details. Please check the URL and try again.';
@@ -76,7 +76,7 @@ function getHeaders() {
     };
 }
 
-// Handle edit button clicks
+// Handlet den klick auf das edit Bild, um die Aufgabe zu Updaten
 taskList.addEventListener("click", async event => {
     const target = event.target;
 
